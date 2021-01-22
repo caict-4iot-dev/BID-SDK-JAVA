@@ -6,7 +6,7 @@
 
 BID-SDK通过API调用的方式提供了“星火链网”公私钥对生成、“星火链网”私钥签名公钥验签、BID标识生成、BID标识验证等接口，同时还提供了接口使用示例说明，开发者可以调用该SDK方便快捷的生成星火链网公私钥对和BID地址，实现BID标识合法性的校验及主链的快速接入。中国信通院秉持开源开放的理念，将星火“BID-SDK”面向社区和公众完全开源，助力全行业伙伴提升数据价值流通的效率，实现数据价值转化。
 
-![img](.\image\sdk.jpg)
+![image](https://github.com/CAICT-DEV/BID-SDK-JAVA/blob/master/image/sdk.jpg)
 
 ## 环境要求
 - BID-SDK运行依赖 commons-codec-1.11.jar、eddsa-0.1.0.jar。 
