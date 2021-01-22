@@ -20,7 +20,7 @@ BID-SDK通过API调用的方式提供了“星火链网”公私钥对生成、�
 
 ## 文档
 
-- [Change](./CHANGELOG.md)
+- [CHANGELOG](./CHANGELOG.md)
 - [LICENSE](./LICENSE)
 - [BID-SDK开发指南](./BID-SDK开发指南.md)
 
