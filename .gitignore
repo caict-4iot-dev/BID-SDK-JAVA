@@ -1,0 +1,16 @@
+
+# 忽略*.o和*.a文件
+*.[oa]
+
+# 忽略.vs目录(Visual Studio)
+.vs
+.idea
+.vscode
+*.lib
+*.so
+*.a
+*.dll
+*.class
+*.sln
+*.vcxproj*
+*.user
