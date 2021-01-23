@@ -14,3 +14,4 @@
 *.sln
 *.vcxproj*
 *.user
+.target

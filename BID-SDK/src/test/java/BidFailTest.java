@@ -1,9 +1,9 @@
 
-import cn.bid.SDK;
-import cn.bid.exceptions.ExceptionCommon;
-import cn.bid.exceptions.SDKException;
-import cn.bid.model.Result;
-import cn.bid.util.HexFormat;
+import cn.ac.caict.bid.SDK;
+import cn.ac.caict.bid.exceptions.ExceptionCommon;
+import cn.ac.caict.bid.exceptions.SDKException;
+import cn.ac.caict.bid.model.Result;
+import cn.ac.caict.bid.util.HexFormatUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -109,6 +109,6 @@ public class BidFailTest {
         String publicKey = "b065667cc1e4584bc9ddb6806c455bdea9f8390724a77a6ed2f6369c830043418c0745";
         String msg = "123412";
         String sig = "B91AB8D815D3230AC678AE560351A10CC536470F80C6B0B89498BB0DA2811A1A5500AAE1AAE25EF05FBC6FB0F9CBE919779C28F424629E7B324E9EA81924550D";
-        Assert.assertFalse(sdk.verifyMessage(publicKey,HexFormat.hexStringToBytes(msg),HexFormat.hexToByte(sig)));
+        Assert.assertFalse(sdk.verifySig(publicKey, HexFormatUtil.hexStringToBytes(msg), HexFormatUtil.hexToByte(sig)));
     }
 }
