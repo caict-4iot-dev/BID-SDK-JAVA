@@ -13,7 +13,7 @@ BID-SDK通过API调用的方式提供了“星火链网”公私钥对生成、�
 ## BID-SDK使用  
 - BID-SDK目录：BID-SDK开源代码  
 - BID-SDK-DEMO目录：BID-SDK开发包演示demo  
-- BID 命令行工具，使用该工具通过命令行的方式使用BID-SDK提供的接口功能
+- BID-TOOL目录：BID 命令行工具，使用该工具通过命令行的方式使用BID-SDK提供的接口功能
 
 详见[BID-SDK开发指南](./BID-SDK开发指南.md)、[BID-TOOL使用指南](./BID-TOOL使用指南.md)
 
