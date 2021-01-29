@@ -106,9 +106,10 @@ public class BidTool {
                     Usage();
                     System.exit(0);
                 }
-                String publicKey = srgs[0];
-                String msg = srgs[1];
-                String sig = srgs[2];
+                String msg = srgs[0];
+                String sig = srgs[1];
+                String publicKey = srgs[2];
+
                 BidService.verifysing(publicKey,msg, sig);
                 System.exit(0);
             }

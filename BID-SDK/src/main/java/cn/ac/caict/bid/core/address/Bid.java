@@ -71,7 +71,7 @@ public class Bid {
             return new Result(false, "Address's length error");
         }
         String[] buf = bid.split(BIDConstant.SEPRATOR);
-        if (buf.length != 3 && buf.length != 4) {
+        if (buf.length !=3 && buf.length != 4) {
             return new Result(false, "Invalid address");
         } else if (buf.length == 3) {
             prefix = buf[0] + BIDConstant.SEPRATOR + buf[1] + BIDConstant.SEPRATOR;
@@ -79,7 +79,7 @@ public class Bid {
         } else {
             prefix = buf[0] + BIDConstant.SEPRATOR + buf[1] + BIDConstant.SEPRATOR;
             chainCode =  buf[2];
-            specialId = buf[3];
+            specialId =  buf[3];
         }
         if (!prefix.equals(BIDConstant.BID_PREFIX)){
             return new Result(false, "Invalid address prefix");
@@ -92,7 +92,7 @@ public class Bid {
         String encodeType = specialId.substring(1, 2);
         String hashPublicKey = specialId.substring(2);
 
-        if ((!keyType.equals(keyTypeChar.getEd25519Str()) ) && (!keyType.equals(keyTypeChar.getSm2Str()))) {
+        if ((!keyType.equals(keyTypeChar.getEd25519Str()) ) && (!keyType.equals(keyTypeChar.getSm2Str())) && (!keyType.equals(keyTypeChar.getSecp256k1Str()))) {
             return new Result(false, "Invalid address,Unsupported KeyType");
         }
 

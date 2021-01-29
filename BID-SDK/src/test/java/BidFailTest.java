@@ -52,7 +52,7 @@ public class BidFailTest {
     }
     @Test
     public void bidInvalidException() throws SDKException {
-        String bid = "did:bid:asd:123:ef7M8MBQrQBMLiqJZaoCdXuwWyzH9pxe";
+        String bid = "did:bid:asds:123:ef7M8MBQrQBMLiqJZaoCdXuwWyzH9pxe";
         String bid1 = "did:bid:";
         Result result = sdk.isValidBid(bid);
         Assert.assertEquals("Invalid address", result.getMessage());
