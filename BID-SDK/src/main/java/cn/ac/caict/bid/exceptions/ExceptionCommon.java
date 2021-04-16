@@ -18,24 +18,24 @@
 package cn.ac.caict.bid.exceptions;
 
 public class ExceptionCommon {
-    // 生成公私钥失败
+    // key generator fail
     public static final int EXCEPTIONCODE_GENERATOR_KEY_ERROR = -1;
-    // 不支持的编码类型
+    // unsupport encodetype
     public static final int EXCEPTIONCODE_UNSUPPORT_ENCODETYPE = -2;
-    // 不支持的密钥类型
+    // unsupport keytype
     public static final int  EXCEPTIONCODE_UNSUPPORT_KEYTYPE = -3;
-    // chaincode格式错误
+    // invalid chaincode
     public static final int EXCEPTIONCODE_INVALID_CHAINCODE = -5;
-    // 密钥格式错误
+    // invalid key
     public static final int EXCEPTIONCODE_INVALID_KEY = -6;
-    // 签名异常
+    // sign failed
     public static final int EXCEPTIONCODE_SIGN_FAILED = -7;
-    //验签异常
+    //verify failed
     public static final int EXCEPTIONCODE_VERIFY_FAILED = -8;
-    //系统异常
+    // system error
     public static final int EXCEPTIONCODE_SYSTEM_ERROR = -9;
-    //非法的签名
+    // invalid sign
     public static final int EXCEPTIONCODE_INVALID_SIGN = -10;
-    //hash计算失败
+    //hash failed
     public static final int EXCEPTIONCODE_HASH_FAILED = -11;
 }

@@ -18,7 +18,7 @@
 package cn.ac.caict.bid.constant;
 
 /**
- * 加密算法
+ * Encryption algorithm
  */
 public enum KeyType {
     ED25519,

@@ -18,10 +18,10 @@
 package cn.ac.caict.bid.exceptions;
 
 /**
- * 异常类
+ * Exception class
  */
 public class SDKException extends  Exception{
-    private int excpCode;// 异常码
+    private int excpCode;// exception code
 
     public SDKException(int excpCode) {
         super();

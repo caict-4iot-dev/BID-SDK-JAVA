@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
- * SM3杂凑算法实现
+ * SM3 implementation of hash algorithm
  */
 public class SM3 {
 

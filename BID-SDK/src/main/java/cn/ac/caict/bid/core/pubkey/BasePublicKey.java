@@ -48,7 +48,7 @@ public abstract class BasePublicKey {
         KeyTypeChar keyTypeChar = new KeyTypeChar();
         EncodeTypeChar encodeTypeChar = new EncodeTypeChar();
 
-        //前缀的长度 + 类型的长度1 + 编码类型的长度1 + 二进制私钥的长度
+        //prefix length + type length 1 + code type length 1 + binary private key length
         int shiftLen =1 + 1 + 1 + rawPublicKey.length;
         byte[] sketTmp = new byte[shiftLen];
         sketTmp[0] = BIDConstant.PUB_KEY_PREFIX;

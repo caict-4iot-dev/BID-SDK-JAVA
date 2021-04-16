@@ -29,8 +29,9 @@ public class PublicKeyManager  extends BasePublicKey {
     public PublicKeyManager(byte[] bPublicKey, KeyType keyType, EncodeType encodeType)throws SDKException {
         if (keyType == KeyType.ED25519){
             publicKey = new ED25519PublicKey(bPublicKey,encodeType);
-        }
-        else{
+        }else if(keyType == KeyType.SM2){
+            publicKey = new SM2PublicKey(bPublicKey,encodeType);
+        } else{
             throw new SDKException(ExceptionCommon.EXCEPTIONCODE_UNSUPPORT_KEYTYPE);
         }
     }
@@ -38,8 +39,9 @@ public class PublicKeyManager  extends BasePublicKey {
         KeyMember keyMember = BasePublicKey.decodePublicKey(sPublicKey);
         if (keyMember.getKeyType() == KeyType.ED25519){
             publicKey = new ED25519PublicKey(keyMember.getRawKey(), keyMember.getEncodeType());
-        }
-        else{
+        }else if(keyMember.getKeyType() == KeyType.SM2){
+            publicKey = new SM2PublicKey(keyMember.getRawKey(),keyMember.getEncodeType());
+        } else{
             throw new SDKException(ExceptionCommon.EXCEPTIONCODE_UNSUPPORT_KEYTYPE);
         }
     }

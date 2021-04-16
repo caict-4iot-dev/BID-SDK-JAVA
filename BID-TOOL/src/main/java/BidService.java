@@ -1,4 +1,6 @@
 import cn.ac.caict.bid.SDK;
+import cn.ac.caict.bid.constant.EncodeType;
+import cn.ac.caict.bid.constant.KeyType;
 import cn.ac.caict.bid.exceptions.SDKException;
 import cn.ac.caict.bid.model.KeyPairEntity;
 import cn.ac.caict.bid.model.Result;
@@ -22,6 +24,27 @@ public class BidService {
                 kaypairEntity = bidSdk.getBidAndKeyPair(chainCode);
             }else {
                 kaypairEntity = bidSdk.getBidAndKeyPair();
+            }
+            String publicKey = kaypairEntity.getPublicKey();
+            String privateKey = kaypairEntity.getPrivateKey();
+            String bid = kaypairEntity.getBid();
+            System.out.println("public-key: " + publicKey);
+            System.out.println("private-key: " + privateKey);
+            System.out.println("bid: " + bid);
+        }catch (SDKException e){
+            System.out.println(e.getExceptMessage());
+        }
+    }
+
+    public static void getBidAndKeypair(String chainCode, KeyType keyType, EncodeType encodeType){
+
+        SDK bidSdk = new SDK();
+        KeyPairEntity kaypairEntity = null;
+        try{
+            if (chainCode != null && !chainCode.isEmpty()){
+                kaypairEntity = bidSdk.getBidAndKeyPair(chainCode,keyType,encodeType);
+            }else {
+                kaypairEntity = bidSdk.getBidAndKeyPair(null,keyType,encodeType);
             }
             String publicKey = kaypairEntity.getPublicKey();
             String privateKey = kaypairEntity.getPrivateKey();

@@ -1,6 +1,7 @@
-import cn.bid.SDK;
-import cn.bid.exceptions.SDKException;
-import cn.bid.util.HexFormat;
+import cn.ac.caict.bid.SDK;
+import cn.ac.caict.bid.exceptions.SDKException;
+import cn.ac.caict.bid.util.HexFormatUtil;
+
 
 public class TestKey {
     public static void main(String[] args){
@@ -24,7 +25,7 @@ public class TestKey {
         SDK bidSdk = new SDK();
         String msg = "1234";
         try {
-            String result = HexFormat.byteToHex(bidSdk.signMessage(privateKey, HexFormat.hexStringToBytes(msg)));
+            String result = HexFormatUtil.byteToHex(bidSdk.signBlob(privateKey, HexFormatUtil.hexStringToBytes(msg)));
             System.out.println(result);
         }catch (SDKException e){
              System.out.println(e.getMessage());;
@@ -35,7 +36,7 @@ public class TestKey {
         String msg = "1234";
         String sig = "B91AB8D815D3230AC678AE560351A10CC536470F80C6B0B89498BB0DA2811A1A5500AAE1AAE25EF05FBC6FB0F9CBE919779C28F424629E7B324E9EA81924550D";
         try {
-            boolean result = bidSdk.verifyMessage(publicKey, HexFormat.hexStringToBytes(msg), HexFormat.hexToByte(sig));
+            boolean result = bidSdk.verifySig(publicKey, HexFormatUtil.hexStringToBytes(msg), HexFormatUtil.hexToByte(sig));
             System.out.println(result);
         }catch (SDKException e){
              System.out.println(e.getMessage());;

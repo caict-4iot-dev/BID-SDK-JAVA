@@ -26,6 +26,7 @@ import cn.ac.caict.bid.model.Result;
 import cn.ac.caict.bid.util.Base58;
 import cn.ac.caict.bid.util.ConvertUtil;
 import cn.ac.caict.bid.util.HashUtil;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.UnsupportedEncodingException;
 import java.util.regex.Matcher;
@@ -52,7 +53,7 @@ public class Bid {
     }
 
     /**
-     * 返回BID地址的版本
+     * Return the version of the BID address
      * @return
      */
     public  static String getBidVersionNumber() {
@@ -96,14 +97,27 @@ public class Bid {
             return new Result(false, "Invalid address,Unsupported KeyType");
         }
 
-        if (!encodeType.equals(encodeTypeChar.getBase58Str())) {
+        if (!encodeType.equals(encodeTypeChar.getBase58Str())&& !encodeType.equals(encodeTypeChar.getBase64Str())) {
             return new Result(false, "Invalid address,Unsupported EncodeType");
         }
 
-        if (Base58.decode(specialId) != null) {
-            byte[] subPublicKey = Base58.decode(hashPublicKey);
-            if (subPublicKey.length != BIDConstant.SUB_PUBKEY_LEN) {
-                return new Result(false, "Invalid address,The length of the public key hash is not valid");
+        //Judge whether is Base58 codec format
+        if(encodeType.equals(encodeTypeChar.getBase58Str())){
+            if (Base58.decode(specialId) != null) {
+                byte[] subPublicKey = Base58.decode(hashPublicKey);
+                if (subPublicKey.length != BIDConstant.SUB_PUBKEY_LEN) {
+                    return new Result(false, "Invalid address,The length of the public key hash is not valid");
+                }
+            }
+        }
+
+        //Judge whether is Base64 codec format
+        if(encodeType.equals(encodeTypeChar.getBase64Str())){
+            if (Base64.decodeBase64(specialId) != null) {
+                byte[] subPublicKey = Base64.decodeBase64(hashPublicKey);
+                if (subPublicKey.length != BIDConstant.SUB_PUBKEY_LEN) {
+                    return new Result(false, "Invalid address,The length of the public key hash is not valid");
+                }
             }
         }
 
@@ -122,7 +136,7 @@ public class Bid {
     }
 
     /**
-     * 返回字符串格式的BID地址
+     * Return BID address use string format
      * @return
      */
     public String getBidStr() throws SDKException {
@@ -151,7 +165,9 @@ public class Bid {
         }
         if (encodeType == EncodeType.Base58) {
             encAddress = Base58.encode(buff);
-        } else {
+        } else if(encodeType == EncodeType.Base64){
+            encAddress = Base64.encodeBase64String(buff);
+        }else {
             throw new SDKException(ExceptionCommon.EXCEPTIONCODE_UNSUPPORT_ENCODETYPE);
         }
         if ((chainCode != null) && (!chainCode.isEmpty())) {

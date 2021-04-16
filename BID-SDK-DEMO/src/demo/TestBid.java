@@ -1,7 +1,7 @@
-import cn.bid.SDK;
-import cn.bid.exceptions.SDKException;
-import cn.bid.model.KeyPairEntity;
-import cn.bid.model.Result;
+import cn.ac.caict.bid.SDK;
+import cn.ac.caict.bid.exceptions.SDKException;
+import cn.ac.caict.bid.model.KeyPairEntity;
+import cn.ac.caict.bid.model.Result;
 
 public class TestBid {
     public static void main(String[] args){
@@ -13,7 +13,7 @@ public class TestBid {
         testIsDidValid();
     }
     static void testGetBidAndKeyPairByChaincode(String chaincode){
-        //创建SDK实例
+        //create SDK instance
         SDK bidSdk = new SDK();
         try {
             KeyPairEntity kaypairEntity = bidSdk.getBidAndKeyPair(chaincode);
@@ -28,7 +28,7 @@ public class TestBid {
         }
     }
     static void testGetBidAndKeyPair(){
-        //创建SDK实例
+        //create SDK instance
         SDK bidSdk = new SDK();
         try {
             KeyPairEntity kaypairEntity = bidSdk.getBidAndKeyPair();
@@ -43,7 +43,7 @@ public class TestBid {
         }
     }
     static void testGetBidByPublicKey(String publicKey){
-        //创建SDK实例
+        //create SDK instance
         SDK bidSdk = new SDK();
         try {
             String bid = bidSdk.getBidByBifPubkey(publicKey);
@@ -53,7 +53,7 @@ public class TestBid {
         }
     }
     static void testGetBidByPublicKeyChaincode(String publicKey,String chaincode){
-        //创建SDK实例
+        //create SDK instance
         SDK bidSdk = new SDK();
         try {
             String bid = bidSdk.getBidByBifPubkey(publicKey, chaincode);

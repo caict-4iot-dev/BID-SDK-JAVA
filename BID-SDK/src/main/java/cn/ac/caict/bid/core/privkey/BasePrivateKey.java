@@ -45,7 +45,7 @@ public abstract class BasePrivateKey {
                if (null == sPrivateKey) {
                     throw new SDKException(ExceptionCommon.EXCEPTIONCODE_INVALID_KEY);
                }
-               //前缀的长度 + 类型的长度1 + 编码类型的长度1
+               //prefix length + type length 1 + code type length 1
                int shiftLen = BIDConstant.PRI_KEY_PREFIX.length + 1 + 1;
 
                byte[] skeyTmp = Base58.decode(sPrivateKey);
@@ -100,12 +100,7 @@ public abstract class BasePrivateKey {
 
           //prefix + keytype + encodetype + privatekey
           System.arraycopy(rawPrivateKey, 0, sketTmp, shiftLen, rawPrivateKey.length);
-          if (encodeType == EncodeType.Base58){
                return Base58.encode(sketTmp);
-          }
-          else{
-               throw new SDKException(ExceptionCommon.EXCEPTIONCODE_UNSUPPORT_ENCODETYPE);
-          }
      }
      public abstract byte[] signBlob(byte[] message) throws SDKException;
 }
