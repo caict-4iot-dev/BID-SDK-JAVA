@@ -4,9 +4,9 @@ import java.io.UnsupportedEncodingException;
 
 public class ConvertUtil {
     /**
-     * byte数组转Ascii
+     * byte array to Ascii
      * @param cbyte byte
-     * @return String值
+     * @return String value
      */
     public static String  byteToAscii(byte cbyte) throws UnsupportedEncodingException {
         byte[] abyte=new byte[1];

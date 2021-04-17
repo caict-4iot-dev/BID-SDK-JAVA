@@ -27,9 +27,9 @@ import cn.ac.caict.bid.model.KeyPairEntity;
 import cn.ac.caict.bid.model.Result;
 
 public class SDK {
-    private final static String sdkVersion="V1.0.0";
+    private final static String sdkVersion="V1.0.1";
     /**
-     * 版本SDK返回
+     * Return the SDK version
      * @return
      */
     public String getSdkVersion() {
@@ -37,7 +37,7 @@ public class SDK {
     }
 
     /**
-     * 版本BID返回
+     * Return the BID version
      * @return
      */
     public String getBidVersion() {
@@ -45,10 +45,10 @@ public class SDK {
     }
 
     /**
-     * 验签
-     * @param publicKey 星火格式的公钥
-     * @param srcMsg 待验签的信息
-     * @param signature 签名
+     * Signature verification
+     * @param publicKey The BIF format public key
+     * @param srcMsg Message to be verified
+     * @param signature signature
      * @return
      */
     public boolean verifySig(String publicKey, byte[] srcMsg, byte[] signature)throws SDKException {
@@ -57,9 +57,9 @@ public class SDK {
     }
 
     /**
-     * 签名
-     * @param prviteKey 星火格式的私钥
-     * @param message 待签名的信息
+     * signature
+     * @param prviteKey Private key in BIF format
+     * @param message Message to be verified
      * @return
      */
     public byte[] signBlob(String prviteKey, byte[] message)throws SDKException {
@@ -68,7 +68,7 @@ public class SDK {
     }
 
     /**
-     * 验证bid格式是否合法
+     * Verify the BID format is legal
      * @param BID
      * @return
      */
@@ -77,7 +77,7 @@ public class SDK {
     }
 
     /**
-     * 根据用户星火格式的公钥生成BID地址
+     * Generate BID address according to user's public key in BIF format
      * @param publKey
      * @param chaincode
      * @return
@@ -88,7 +88,7 @@ public class SDK {
     }
 
     /**
-     * 根据用户星火格式的公钥生成BID地址
+     * Generate BID address according to user's public key in BIF format
      * @param publKey
      * @return
      */
@@ -98,7 +98,7 @@ public class SDK {
     }
 
     /**
-     * 获取BID地址和星火格式的公私钥对，
+     * Get the default bid address and the public&private key pair in BIF format，
      * @param chaincode
      * @return
      */
@@ -113,8 +113,25 @@ public class SDK {
         keyPairEntity.setBid(bid.getBidStr());
         return keyPairEntity;
     }
+
     /**
-     * 获取BID地址和星火格式的公私钥对，
+     * Get the bid address and the public&private key pair in BIF format，
+     * @param chaincode
+     * @return
+     */
+    public KeyPairEntity getBidAndKeyPair(String chaincode,KeyType keyType,EncodeType encodeType) throws SDKException {
+        PrivateKeyManager privateKeyManager = new PrivateKeyManager(keyType, encodeType);
+        PublicKeyManager publicKeyManager = new PublicKeyManager(privateKeyManager.getRawPublicKey(),privateKeyManager.getKeyType(), privateKeyManager.getEncodeType());
+        Bid bid = new Bid(privateKeyManager.getRawPublicKey(),chaincode,privateKeyManager.getKeyType(), privateKeyManager.getEncodeType());
+        KeyPairEntity keyPairEntity = new KeyPairEntity();
+        keyPairEntity.setPrivateKey(privateKeyManager.getBifPrivateKey());
+        keyPairEntity.setPublicKey(publicKeyManager.getBifPublicKey());
+        keyPairEntity.setBid(bid.getBidStr());
+        return keyPairEntity;
+    }
+
+    /**
+     * Get the default bid address and the public&private key pair in BIF format，
      * @return
      */
     public KeyPairEntity getBidAndKeyPair() throws SDKException {
@@ -130,7 +147,7 @@ public class SDK {
     }
 
     /**
-     * 获取BID地址和星火格式的公私钥对，
+     * Return the BID address and BIF formate public private key pair，
      * @return
      */
     public String getBifPubkeyByPrivateKey(String privateKey) throws SDKException {

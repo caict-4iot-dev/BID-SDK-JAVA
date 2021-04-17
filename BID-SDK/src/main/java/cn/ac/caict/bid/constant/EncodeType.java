@@ -18,7 +18,7 @@
 package cn.ac.caict.bid.constant;
 
 /**
- * 编码类型
+ * encode type
  */
 public enum EncodeType {
     Base58,

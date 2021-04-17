@@ -19,17 +19,17 @@ package cn.ac.caict.bid.model;
 
 /**
  * @program: bid-sdk-java
- * @description: bid验证结果
+ * @description: bid verify result
  * @author: tjl
  * @create: 2021-01-20 16:45
  **/
 public class Result {
     /**
-     * 验证结果 失败：false 成功：true
+     * verify result,if fail ：false if success：true
      */
     private boolean status;
     /**
-     * 验证结果说明
+     * verify result message
      */
     private String message;
 

@@ -30,7 +30,9 @@ public class PrivateKeyManager  extends BasePrivateKey {
         try {
             if (keyType == KeyType.ED25519) {
                 privateKey = new ED25519PrivateKey(encodeType);
-            } else {
+            } else if(keyType == KeyType.SM2){
+               privateKey = new SM2PrivateKey(encodeType);
+            }else {
                 throw new SDKException(ExceptionCommon.EXCEPTIONCODE_UNSUPPORT_KEYTYPE);
             }
         }catch (Exception e){
@@ -42,7 +44,9 @@ public class PrivateKeyManager  extends BasePrivateKey {
         try {
             if (keyType == KeyType.ED25519) {
                 privateKey = new ED25519PrivateKey(sPrivateKey);
-            } else {
+            } else if(keyType == KeyType.SM2){
+                privateKey = new SM2PrivateKey(sPrivateKey);
+            }else {
                 throw new SDKException(ExceptionCommon.EXCEPTIONCODE_UNSUPPORT_KEYTYPE);
             }
         }catch (Exception e){

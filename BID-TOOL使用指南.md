@@ -8,7 +8,7 @@ BID命令行工具，主要是为方便开发者使用命令行的方式完成BI
 - 公私钥工具：生成星火格式的公私钥、使用星火格式的私钥生成签名、使用星火格式的公钥生成签名。    
 
 ### 快速使用
-- jar包获取：下载开源项目BID-SDK，在BID-TOOL下导出jar包，并从该项目中获取依赖jar包，commons-codec-1.11.jar、eddsa-0.1.0.jar、commons-cli-1.4.jar。
+- jar包获取：下载开源项目BID-SDK，在BID-TOOL下导出jar包，并从该项目中获取依赖jar包，bcprov-jdk15on-1.56.jar、commons-codec-1.11.jar、eddsa-0.1.0.jar、commons-cli-1.4.jar。
 - 执行 java -jar bid-jar.jar --help ,根据提示信息传递需要的参数。
 - 环境要求：jdk1.8或以上。
 

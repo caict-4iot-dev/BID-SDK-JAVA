@@ -118,7 +118,52 @@ public class TestGetBidAndKeyPair {
 }
 ```
 
-#### 4. 根据用户公钥生成BID地址
+#### 4. 根据加密类型和编解码类型生成公私钥对
+
+- 函数体
+> getBidByBifPubkey
+
+
+- 输入参数
+>|参数|必选|类型|说明|
+>| :-------- | :--------| :--------| :--------|
+>|chaincode    |true    |String| chaincode                          |
+>|KeyType    |true    |String| chaincode                          |
+>|encodeType    |true    |String| encodeType                          |
+
+
+- 返回值
+> |类型|说明                              |
+> | :-------- | :--------|
+>|KeyPairEntity   |KeyPairEntity对象，属性包含bid和星火格式的公私钥|
+
+
+- 接口示例
+```java
+import cn.ac.caict.bid.SDK;
+import cn.ac.caict.bid.exceptions.SDKException;
+import cn.ac.caict.bid.model.KeyPairEntity;
+
+public class TestGetBidAndKeyPair {
+        public static void main(String[] args){
+            //创建SDK实例
+            SDK bidSdk = new SDK();
+            try {
+                KeyPairEntity kaypairEntity = bidSdk.getBidAndKeyPair("12av", KeyType.SM2, EncodeType.Base64);
+                String publicKey = kaypairEntity.getPublicKey();
+                String privateKey = kaypairEntity.getPrivateKey();
+                String bid = kaypairEntity.getBid();
+                System.out.println(publicKey);
+                System.out.println(privateKey);
+                System.out.println(bid);
+            } catch (SDKException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+}
+```
+
+#### 5. 根据用户公钥生成BID地址
 - 函数体
 > getBidByBifPubkey
 
@@ -155,7 +200,7 @@ public class TestGetBidByPubkey {
 ```
 
 
-#### 5. 根据私钥生成公钥
+#### 6. 根据私钥生成公钥
 
 - 函数体
 > getBifPubkeyByPrivateKey
@@ -192,7 +237,7 @@ public class TestGetPubkeyByPrikey {
 }
 ```
 
-#### 5. 签名星火链Blob消息
+#### 7. 签名星火链Blob消息
 - 函数体
 > signBlob
 
@@ -228,7 +273,7 @@ public class TestSigBlob {
 }
 ```
 
-#### 6. 验正星火链Blob消息签名
+#### 8. 验正星火链Blob消息签名
 用来验证星火链上的签名信息，星火链的签名信息byte[]经过16进制格式化后存储，因此在验签之前需要先转回byte[]
 - 函数体
 > verifySig
@@ -270,7 +315,7 @@ public class TestVerifyBlob {
 ```
 
 
-#### 7. 验证bid格式是否合法
+#### 9. 验证bid格式是否合法
 - 函数体
 > isValidBid
 

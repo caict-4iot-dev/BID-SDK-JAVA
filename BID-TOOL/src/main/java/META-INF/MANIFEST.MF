@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: BidTool
-Class-Path: eddsa-0.1.0.jar eddsa-0.1.0.jar commons-lang-2.6.jar bid-sdk
- -1.0.jar bid-sdk-1.0.jar commons-codec-1.11.jar commons-cli-1.4.jar com
- mons-codec-1.11.jar
-

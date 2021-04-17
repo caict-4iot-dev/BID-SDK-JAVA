@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 具体加密类型和公私钥对加密算法的映射关系
+ * Relationship between encryption type and encryption algorithm
  */
 public  class KeyTypeChar {
     private final Byte ed25519='e';
