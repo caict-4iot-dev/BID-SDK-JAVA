@@ -7,7 +7,7 @@ BID-SDK通过API调用的方式提供了“星火链网”公私钥对生成、�
 ![image](image/sdk.jpg)
 
 ## 环境要求
-- BID-SDK运行依赖 commons-codec-1.11.jar、eddsa-0.1.0.jar。 
+- BID-SDK运行依赖 bif-chain-sdk-1.0.1-jar-with-dependencies.jar。 
 - BID-SDK需要JDK1.8以上的版本。
 
 ## BID-SDK使用  

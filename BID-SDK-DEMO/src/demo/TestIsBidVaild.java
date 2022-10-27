@@ -1,6 +1,8 @@
+package src.demo;
+
 import cn.ac.caict.bid.SDK;
-import cn.ac.caict.bid.exceptions.SDKException;
-import cn.ac.caict.bid.model.Result;
+import cn.ac.caict.bid.model.result.Result;
+import cn.bif.exception.SDKException;
 
 public class TestIsBidVaild {
         public static void main(String[] args){
@@ -10,7 +12,7 @@ public class TestIsBidVaild {
                 Result result = bidSdk.isValidBid(bid);
                 System.out.println(result);
             } catch (SDKException e) {
-                System.out.println(e.getExceptMessage());
+                System.out.println(e.getMessage());
             }
         }
 }
