@@ -260,7 +260,7 @@ public class Bid {
         serviceOperation.setId(encAddress+"#resolver");
         serviceOperation.setServiceEndpoint("https://bidresolver.com");
         //服务类型
-        serviceOperation.setType(DidType.DID_DECRYPT.getCode());
+        serviceOperation.setType(DidType.DID_RESOLVER.getCode());
             //解析服务协议类型
         serviceOperation.setProtocol(ResolverType.RESOLVER_HTTP.getCode());
             //服务地址类型,0为域名形式，1为IP地址形式
