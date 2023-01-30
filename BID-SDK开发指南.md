@@ -632,7 +632,7 @@ public class TestIsBidVaild {
         BIDServiceOperation service[]=new BIDServiceOperation[1];
         BIDServiceOperation serviceOperation=new BIDServiceOperation();
         serviceOperation.setId(senderAddress+"#resolver");
-        serviceOperation.setServiceEndpoint("https://bidresolver.com");
+        serviceOperation.setServiceEndpoint("http://test-bidresolver.bitfactory.cn");
         //服务类型
         serviceOperation.setType(DidType.DID_DECRYPT.getCode());
         //解析服务协议类型
