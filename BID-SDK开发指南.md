@@ -817,7 +817,7 @@ public class TestIsBidVaild {
 
 #### 18. 通过Hash获取BID标识
 
-通过hash地址获取BID标识
+通过解析BID标识交易hash地址获取BID标识地址
 
 - 函数体
 
@@ -826,9 +826,9 @@ public class TestIsBidVaild {
 
 - 输入参数
 
->| 参数 | 必选 | 类型   | 说明     |
->| :--- | :--- | :----- | :------- |
->| hash | true | String | Hash地址 |
+>| 参数 | 必选 | 类型   | 说明                |
+>| :--- | :--- | :----- | :------------------ |
+>| hash | true | String | BID标识交易Hash地址 |
 
 
 - 返回值
