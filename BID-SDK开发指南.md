@@ -11,7 +11,7 @@ BID开发工具包，主要是为了方便开发者可以快速加入到星火�
 ### BID-SDK与BID版本对应关系说明
 > |BIF-Core-SDK版本|BID版本                              |
 > | :-------- | :--------|
-> |1.0.1  |1.0.0 |
+> |1.0.2  |1.0.0 |
 
 ### 快速使用
 - jar包获取：下载开源项目BIF-Core-SDK，导出jar包，并从该项目中获取依赖jar包。
@@ -458,8 +458,8 @@ public class TestIsBidVaild {
 > | message.privateKey    | String       | 私钥                                                         |
 > | message.remarks       | String       | 备注                                                         |
 > | message.bids          | List<Object> | List集合                                                     |
-> | message.feeLimit      | Long         | 交易花费的手续费(单位是PT)，默认1000000L                     |
-> | message.gasPrice      | Long         | 打包费用 (单位是PT)，默认100L                                |
+> | message.feeLimit      | Long         | 交易花费的手续费，单位是星火萤(glowstone)，默认1000000L      |
+> | message.gasPrice      | Long         | 打包费用 ，单位是星火萤(glowstone)，默认100L                 |
 > | message.ceilLedgerSeq | Long         | 区块高度限制, 如果大于0，则交易只有在该区块高度之前（包括该高度）才有效 |
 
 
