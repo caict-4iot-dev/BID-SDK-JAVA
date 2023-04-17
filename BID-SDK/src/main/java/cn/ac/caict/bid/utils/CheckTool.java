@@ -152,7 +152,7 @@ public class CheckTool {
                         return new Result(false,"Invalid Extension in Type parameter enums type");
                     }
                 }
-                if(!Tools.isEmpty(paramDocument.getExtension().getDelegateSign().getSigner())){
+                if(!Tools.isEmpty(paramDocument.getExtension().getDelegateSign()) && !Tools.isEmpty(paramDocument.getExtension().getDelegateSign().getSigner())){
                     //delegateSign中id地址校验
                     String signer=paramDocument.getExtension().getDelegateSign().getSigner();
                     if(signer.indexOf("#")!=-1){
